@@ -213,5 +213,3 @@ This project is designed strictly for academic learning purposes.
 ## Author
 
 Nishant Rajora  
-Data Science Undergraduate  
-Focused on building strong programming foundations and system-level understanding
