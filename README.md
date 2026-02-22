@@ -1,56 +1,116 @@
-# 📚 Library Management System (C Project)
+# Library Management System (C Project)
 
-A simple **Library Management System** written in **C** that allows users to **add**, **search**, **view**, and **delete** books using a text file for persistent storage. The system includes a **login interface**, file handling, and a basic text-based menu system.
+## Overview
 
+This project is a console-based Library Management System developed in C.  
+It provides fundamental book management operations including adding, searching, viewing, and deleting book records using file-based storage.
 
----
+The system demonstrates practical understanding of:
 
-## 🧰 Features
+- File handling in C  
+- String manipulation  
+- Structured programming  
+- Menu-driven user interface design  
+- Persistent data storage using text files  
 
-- 🔐 **Login System** (Hardcoded username and password)
-- 📘 **Add Books** – Input book title, author, and code
-- 🔍 **Search Books** – By title, author, or book code
-- 📖 **View All Books** – Display all stored book entries
-- ❌ **Delete Book** – Remove book entry by keyword match
-- 📂 **File Storage** – Uses `bookdata.txt` for storing data
-
----
-
-## 🛠️ Technologies Used
-
-| Feature            | Tool / Concept   |
-|--------------------|------------------|
-| Programming Lang.  | C (Standard C89) |
-| File Handling      | `fopen`, `fprintf`, `fscanf`, `remove`, `rename` |
-| String Operations  | `strcmp`, `strstr`, `scanf`, `fgets`             |
+This project was built as an academic exercise to strengthen core C programming concepts.
 
 ---
 
-## 📁 File Structure
+## Project Objectives
+
+- Implement file-based persistent storage  
+- Develop CRUD operations (Create, Read, Search, Delete)  
+- Design a login-based console application  
+- Practice structured programming in C  
+- Apply string comparison and pattern matching  
+
+---
+
+## Key Features
+
+### 1. Login System
+
+- Hardcoded username and password  
+- Basic credential validation before access  
+- Prevents unauthorized access to system functions  
+
+---
+
+### 2. Book Management Operations
+
+#### Add Books
+- Store book title  
+- Store author name  
+- Store unique book code  
+- Append records to `bookdata.txt`  
+
+#### Search Books
+- Search by title  
+- Search by author  
+- Search by book code  
+- Uses string comparison functions  
+
+#### View All Books
+- Displays all stored records  
+- Reads sequentially from text file  
+
+#### Delete Book
+- Removes book entry based on keyword match  
+- Uses temporary file mechanism  
+- Applies `remove()` and `rename()` functions  
+
+---
+
+## Technologies and Concepts Used
+
+| Component | Technology / Concept |
+|------------|----------------------|
+| Programming Language | C (Standard C89) |
+| File Handling | fopen, fprintf, fscanf, remove, rename |
+| String Functions | strcmp, strstr |
+| Input Handling | scanf, fgets |
+| Program Structure | Menu-driven CLI application |
+
+---
+
+## Project Structure
 
 ```
-📦 LibraryManagementSystem/
-├── main.c              // Complete C code
-├── bookdata.txt        // Stores all book entries (created at runtime)
+LibraryManagementSystem/
+│
+├── main.c
+└── bookdata.txt
 ```
+
+- `main.c` – Complete source code  
+- `bookdata.txt` – Persistent storage file (auto-created at runtime)  
 
 ---
 
-## 🖥️ How to Run
+## Compilation and Execution
 
-### 🧱 Compile
-```bash
+### Compile
+
+```
 gcc main.c -o library
 ```
 
-### 🚀 Execute
-```bash
+### Run
+
+```
 ./library
+```
+
+On Windows:
+
+```
+library.exe
 ```
 
 ---
 
-## 🔑 Login Credentials
+## Login Credentials
 
 | Username | Password |
 |----------|----------|
@@ -58,57 +118,100 @@ gcc main.c -o library
 
 ---
 
-## 🧪 Program Menu
+## Program Menu
 
 ```
-+-----------------------------------------------------------------+
-|                   MAIN MENU                                     |
-+-----------------------------------------------------------------+
-|    1.  Add Books                                                |
-|    2.  Search Books                                             |
-|    3.  View Books                                               |
-|    4.  Delete Book                                              |
-|    5.  Exit                                                     |
-+-----------------------------------------------------------------+
+1. Add Books
+2. Search Books
+3. View Books
+4. Delete Book
+5. Exit
 ```
 
 ---
 
-## 📘 Sample Book Entry Format (Stored in `bookdata.txt`)
+## Data Storage Format
+
+Entries in `bookdata.txt` follow this format:
 
 ```
 Title: HarryPotter
 Author: JKRowling
 Book Code: HP001
-
-Title: CProgramming
-Author: DennisRitchie
-Book Code: C001
 ```
 
-> Note: Title, author, and code are stored in a single-line format, separated by labels.
+Each book record is stored sequentially with labeled fields.
 
 ---
 
-## ⚠️ Known Limitations
+## Program Workflow
 
-- Does not support **multi-word** book titles or author names due to `scanf(" %s", ...)` usage.
-- No **encryption** or secure user authentication.
-- Deletes first match only; not case-insensitive.
-- Data is overwritten if formatting in the file is changed manually.
-
----
-
-## 🌱 Future Improvements
-
-- 🧾 Support **multi-word input** using `fgets()` or input buffers
-- 🔒 Add **user registration/authentication** with encryption
-- 🗃️ Store data in **binary file** or **database (SQLite)**
-- 🖥️ Add a **GUI** using C libraries like GTK
+1. User logs in  
+2. Main menu is displayed  
+3. User selects desired operation  
+4. File operations are performed  
+5. System returns to menu until exit  
 
 ---
 
-## 🧑‍🏫 Project Info
+## Learning Outcomes
 
-> 🎓 **Mini Project** for 2nd/3rd Semester (C Programming)  
-> 🏫 Suitable for coursework and understanding **file handling**, **string functions**, and **user-driven programs** in C.
+- Understanding file operations in C  
+- Working with structured text storage  
+- Implementing CRUD functionality  
+- Managing temporary files for safe deletion  
+- Building menu-driven CLI applications  
+- Handling string comparison and search logic  
+
+---
+
+## Limitations
+
+- Multi-word titles and author names are not supported due to `scanf("%s")` usage  
+- Case-sensitive search functionality  
+- Deletes only first matched entry  
+- Hardcoded authentication credentials  
+- Plain text storage without encryption  
+- No error handling for corrupted files  
+
+This project is designed strictly for academic learning purposes.
+
+---
+
+## Future Improvements
+
+- Replace `scanf` with `fgets` for multi-word support  
+- Implement case-insensitive search  
+- Add user registration system  
+- Store records in structured binary format  
+- Integrate SQLite database  
+- Add pagination for viewing records  
+- Implement role-based access (Admin/User)  
+- Introduce structured error handling  
+
+---
+
+## Possible Extensions
+
+- Convert to GUI using GTK  
+- Add book issuing and return management  
+- Maintain borrower records  
+- Implement due date tracking  
+- Add fine calculation module  
+
+---
+
+## Ideal For
+
+- C Programming coursework  
+- Mini academic projects  
+- Learning file handling and string functions  
+- Understanding structured procedural programming  
+
+---
+
+## Author
+
+Nishant Rajora  
+Data Science Undergraduate  
+Focused on building strong programming foundations and system-level understanding
